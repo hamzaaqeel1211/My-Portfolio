@@ -150,7 +150,7 @@ function Hero() {
 {'  '}],{'\n'}
 {'  '}<span className="c-prop">available</span>: <span className="c-keyword">true</span>,{'\n'}
 {'}'};{'\n\n'}
-<span className="c-comment">// Ready to build something awesome?</span>{'\n'}
+<span className="c-comment">{/*// Ready to build something awesome?*/}</span>{'\n'}
 <span className="c-keyword">export default</span> developer;
               </code>
             </pre>
