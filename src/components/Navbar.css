@@ -1,0 +1,59 @@
+/* Navbar.css */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  padding: 16px 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.navbar--scrolled {
+  background: rgba(10,14,26,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.navbar__inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navbar__logo {
+  font-family: var(--font-head); font-size: 1.3rem; font-weight: 800;
+  color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+}
+.navbar__links {
+  display: flex; align-items: center; gap: 8px; list-style: none;
+}
+.navbar__link {
+  color: var(--muted); font-size: 0.9rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s;
+}
+.navbar__link:hover { color: var(--text); background: var(--bg-soft); }
+.navbar__cta { font-size: 0.82rem !important; padding: 8px 18px !important; }
+
+/* Hamburger */
+.navbar__burger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.navbar__burger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px; transition: all 0.3s;
+}
+.navbar__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__burger.open span:nth-child(2) { opacity: 0; }
+.navbar__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.navbar__mobile {
+  display: none; flex-direction: column; align-items: flex-start; gap: 4px;
+  background: var(--bg-card); padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+}
+.navbar__mobile--open { max-height: 400px; display: flex; }
+.navbar__mobile-link {
+  color: var(--muted); font-size: 1rem; padding: 10px 0; width: 100%;
+  border-bottom: 1px solid var(--border); transition: color 0.2s;
+}
+.navbar__mobile-link:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .navbar__links { display: none; }
+  .navbar__burger { display: flex; }
+}

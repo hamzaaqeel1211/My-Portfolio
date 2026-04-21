@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+/* ============================================================
+   App.css — Global styles for the entire portfolio
+   Uses CSS custom properties (variables) for easy theming.
+   To change the color scheme, update the :root variables.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  --bg:         #0a0e1a;
+  --bg-card:    #111827;
+  --bg-soft:    #1a2235;
+  --accent:     #38bdf8;
+  --accent2:    #818cf8;
+  --text:       #e2e8f0;
+  --muted:      #8892a4;
+  --border:     rgba(56,189,248,0.15);
+  --radius:     12px;
+  --font-head:  'Syne', sans-serif;
+  --font-body:  'DM Sans', sans-serif;
+  --shadow:     0 8px 32px rgba(0,0,0,0.4);
+  --shadow-glow:0 0 30px rgba(56,189,248,0.12);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,h2,h3,h4 { font-family: var(--font-head); line-height: 1.2; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent2); }
+
+.section { padding: 90px 0; }
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title-line {
+  width: 56px; height: 3px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  border-radius: 99px;
+  margin: 12px 0 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0a0e1a; font-weight: 700; font-family: var(--font-head);
+  font-size: 0.9rem; padding: 12px 28px; border-radius: 8px;
+  border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; letter-spacing: 0.02em;
 }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,189,248,0.35); color: #0a0e1a; }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--accent); font-weight: 600;
+  font-family: var(--font-head); font-size: 0.9rem; padding: 11px 26px;
+  border-radius: 8px; border: 1.5px solid var(--accent); cursor: pointer;
+  transition: background 0.2s, transform 0.2s; text-decoration: none; letter-spacing: 0.02em;
+}
+.btn-outline:hover { background: rgba(56,189,248,0.1); transform: translateY(-2px); color: var(--accent); }
+
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-glow); border-color: rgba(56,189,248,0.35); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 99px; }
+
+@keyframes fadeInUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+.fade-in         { animation: fadeInUp 0.7s ease both; }
+.fade-in-delay-1 { animation: fadeInUp 0.7s 0.15s ease both; }
+.fade-in-delay-2 { animation: fadeInUp 0.7s 0.30s ease both; }
+.fade-in-delay-3 { animation: fadeInUp 0.7s 0.45s ease both; }
