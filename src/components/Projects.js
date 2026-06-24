@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import './Projects.css';
+import fhImg from'./assests/projects/fh.png'
 
 // ── Project data ────────────────────────────────────────────
 // Set liveUrl / githubUrl to '#' if not available yet.
@@ -18,6 +19,7 @@ const projects = [
     tags:        ['JavaScript', 'PHP', 'HTML', 'CSS'],
     liveUrl:     'https://floridahelps.com/',
     githubUrl:   'https://github.com/hamzaaqeel1211',
+    image:        fhImg,  
   },
   {
     id: 2,
